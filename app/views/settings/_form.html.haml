@@ -1,0 +1,21 @@
+.x_panel
+  .x_title
+    %h2= "Editar ENV Var"
+    .clearfix
+  .x_content
+    = form_for @setting, url: @setting.new_record? ? settings_path : setting_path(@setting), remote: true, html: {class: "form-horizontal"} do |f|
+      .form-group
+        .col-md-3.control-label= f.label "Name"
+        .col-md-5= f.text_field :name, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Key"
+        .col-md-5= f.text_field :key, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Value"
+        .col-md-5= f.text_field :value, class: 'string form-control'
+
+      .form-group
+        .col-md-3
+        .col-md-5
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-default{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}= t("cancel")

@@ -1,0 +1,28 @@
+.row
+  .col-xs-12
+    %h1= @content.name
+    
+  .col-xs-12
+    .table-responsive
+      %table.table.table-striped
+        %tbody
+          %tr
+            %td.content_detail.col-xs-2{rowspan: 6}
+              = content_image @content
+          %tr
+            %th= "Position"
+            %td= @content.position.text if @content.position
+          %tr
+            %th= "Height"
+            %td= @content.height
+          %tr
+            %th= "Date of Birth"
+            %td= @content.date_of_birth.to_s(:short_date) if @content.date_of_birth
+          %tr 
+            %th= "Place of Birth"
+            %td= @content.place_of_birth 
+          %tr 
+            %th= "Price"
+            %td= content_price @content.price[CURRENT_ROUND]
+  .col-xs-12
+    = render partial: "statistics/statistics_content", locals: {statistic: @content.statistics.last}

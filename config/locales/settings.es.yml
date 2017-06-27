@@ -1,0 +1,8 @@
+es:
+  settings:
+    index: 
+      create: "New ENV Var"
+      title: "ENV Vars"
+    setting:
+      confirm_delete: "Seguro que quieres eliminar la ENV Var?"
+      deleting: "Eliminando..."

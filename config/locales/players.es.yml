@@ -1,0 +1,29 @@
+es:  
+  activerecord:
+    attributes:
+      player:
+        date_of_birth: "Fecha de Nacimiento"
+        height: "Altura"
+        place_of_birth: "Lugar de Nacimiento"
+        player: "Jugador"
+        position: "Posición"
+        price: "Precio"
+    models:
+      player: "Jugador"
+  players:
+    index: 
+      calculate_prices: "Calculate Prices"
+      create: "New Player"      
+      import_numbers: "Import Numbers"
+      import_players: "Import Players"
+      title: "Jugadores"
+    player:
+      confirm_delete: "Seguro que quieres eliminar el Jugador?"
+      deleting: "Eliminando..."
+  enumerize:
+    player:
+      position:
+        all: "All"
+        base: "Base"
+        alero: "Alero"
+        pivot: "Pívot"

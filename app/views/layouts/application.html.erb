@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= csrf_meta_tags %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <title>Estadísticas ACB!</title>
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <%= render partial: "inc/left_side_menu/title" %>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <%= render partial: "inc/left_side_menu/menu_profile" %>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <%= render partial: "inc/left_side_menu/options" %>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <%= render partial: "inc/left_side_menu/menu_footer_buttons" %>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+
+        <%= render partial: "inc/top_navigation" %>
+
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+          <%= yield %>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <%= render partial: "inc/footer" %>
+        <!-- /footer content -->
+      </div>
+    </div>
+    <%= render partial: "inc/modal" %>
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

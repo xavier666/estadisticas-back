@@ -1,0 +1,28 @@
+.x_panel
+  .x_title
+    %h2= "Editar Estadística"
+    .clearfix
+  .x_content
+    = form_for @statistic, url: @statistic.new_record? ? statistics_path : statistic_path(@statistic), remote: true, html: {class: "form-horizontal"} do |f|
+      .form-group
+        .col-md-3.control-label= f.label "Player"
+        .col-md-5= @statistic.player
+      .form-group
+        .col-md-3.control-label= f.label "Position"
+        .col-md-5= @statistic.player.position.text if @statistic.player.position
+      .form-group
+        .col-md-3.control-label= f.label "Team"
+        .col-md-5= @statistic.player.team
+      .form-group
+        .col-md-3.control-label= f.label "Season"
+        .col-md-5= f.text_field :season, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Statistics"
+        .col-md-9
+          = render partial: "statistics_player", locals: {statistic: @statistic}
+          
+      .form-group
+        .col-md-3
+        .col-md-5
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-default{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}= t("cancel")

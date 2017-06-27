@@ -1,0 +1,8 @@
+es:
+  games:
+    game:
+      confirm_delete: "Seguro que quieres eliminar el Partido?"
+      deleting: "Eliminando..."
+    index:      
+      create: "New Team"
+      title: "Partidos"

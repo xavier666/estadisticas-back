@@ -1,0 +1,11 @@
+- unless notice.blank?
+	#info-notice.alert.alert-success.alert-dismissable.fade.in.text-right{ "role":"alert" }
+		%button{ "type":"button", "class":"close", "data-dismiss":"alert", "aria-label":"Close" }
+			%span{ "aria-hidden":"true"} &times;
+		%span.message-content= notice
+
+- unless alert.blank?
+	#info-alert.alert.alert-danger.alert-dismissable.fade.in.text-right{ "role":"alert" }
+		%button{ "type":"button", "class":"close", "data-dismiss":"alert", "aria-label":"Close" }
+			%span{ "aria-hidden":"true"} &times;
+		%span.message-content= alert

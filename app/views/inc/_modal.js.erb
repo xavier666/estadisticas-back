@@ -1,0 +1,6 @@
+$('#site-modal .modal-content').html("<%= modal_content %>");
+$('#site-modal .modal-dialog').addClass("<%= size %>")
+$('#site-modal').modal('show')
+$('#site-modal .select2').select2({width: "100%", allowClear: true, placeholder: " "});
+$(".select2tags").select2({tags:[], width: "100%"});
+$('#site-modal *[autofocus="autofocus"]').focus();

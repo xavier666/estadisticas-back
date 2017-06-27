@@ -1,0 +1,36 @@
+.x_panel
+  .x_title
+    %h2= "Editar Partido"
+    .clearfix
+  .x_content
+    = form_for @game, url: @game.new_record? ? games_path : game_path(@game), remote: true, html: {class: "form-horizontal"} do |f|
+      .form-group
+        .col-md-3.control-label= f.label "Season"
+        .col-md-5= f.text_field :season, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Round"
+        .col-md-5= f.text_field :round, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Local Team"
+        .col-md-5= f.collection_select :local_team_id, Team.active, :id, :name, {}, {class: 'form-control select2'}
+      .form-group
+        .col-md-3.control-label= f.label "Away Team"
+        .col-md-5= f.collection_select :away_team_id, Team.active, :id, :name, {}, {class: 'form-control select2'}
+      .form-group
+        .col-md-3.control-label= f.label "Date"
+        .col-md-5= f.text_field :game_date, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Local Score"
+        .col-md-5= f.text_field :local_score, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Away Score"
+        .col-md-5= f.text_field :away_score, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Active"
+        .col-md-5= f.check_box :active
+
+      .form-group
+        .col-md-3
+        .col-md-5
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-default{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}= t("cancel")

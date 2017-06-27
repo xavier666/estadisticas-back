@@ -1,0 +1,21 @@
+%tr{:id => dom_id(player)} 
+  %td= player.id
+  %td= player_image player, "height_22"
+  %td= player.number
+  %td= link_to player.name, player_path(player)
+  %td= link_to player.team.name, team_path(player.team) if player.team
+  %td= player_price player.price[CURRENT_ROUND]
+  %td= player.position.try(:text) if player.position
+  %td
+    - if player.active
+      %i.glyphicon.glyphicon-ok
+    - else
+      %i.glyphicon.glyphicon-remove
+  %td.actions
+    %ul.nav.navbar-right.panel_toolbox.list-inline
+      %li
+        = link_to edit_player_path(player), remote: true do
+          %i.fa.fa-pencil
+      %li
+        = link_to player_path(player), remote: true, method: :delete, data: {confirm: t(".confirm_delete"), disable_with: t(".deleting")} do
+          %i.fa.fa-trash-o

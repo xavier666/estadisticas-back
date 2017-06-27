@@ -1,0 +1,44 @@
+.row
+  .col-xs-12
+    %h1= @team.name
+    = team_image @team, "height_22"
+  .col-xs-12
+    .table-responsive
+      %table.table.table-striped
+        %thead.sortable
+          %tr
+            %th.col-xs-2= "Imatge"
+            %th.col-xs-2= "Id"
+            %th.col-xs-2= "Nom"
+            %th.col-xs-2= "Position"
+            %th.col-xs-2= "Price"
+            %th.col-xs-2= "Team"
+        %tbody=# render @team.players
+  .col-xs-12
+    %h1= "Acumulats 2015"
+  .col-xs-12
+    .table-responsive
+      %table.table.table-striped
+        %thead.sortable
+          %tr
+            %th.col-xs-2= "ID"
+            %th.col-xs-2= "Jornada"
+            %th.col-xs-2= "Equip"
+            %th.col-xs-2= "Rival"
+            %th.col-xs-2= "Acumulats Fets"
+            %th.col-xs-2= "Acumulats Rebuts"
+        %tbody=# render @team.statistics.team.where(season: "2015").order(:game_number)
+  .col-xs-12
+    %h1= "Acumulats 2014"
+  .col-xs-12
+    .table-responsive
+      %table.table.table-striped
+        %thead.sortable
+          %tr
+            %th.col-xs-2= "ID"
+            %th.col-xs-2= "Jornada"
+            %th.col-xs-2= "Equip"
+            %th.col-xs-2= "Rival"
+            %th.col-xs-2= "Acumulats Fets"
+            %th.col-xs-2= "Acumulats Rebuts"
+        %tbody=# render @team.statistics.team.where(season: "2014").order(:game_number)

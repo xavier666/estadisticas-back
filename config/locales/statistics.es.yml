@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    attributes:
+      statistics:
+        mas_menos: "+/-"
+  statistics:
+    index:
+      create: "New Statistic"
+      title: "Estadísticas"
+    statistic:
+      confirm_delete: "Seguro que quieres eliminar la Estadística?"
+      deleting: "Eliminando..."

@@ -1,0 +1,13 @@
+%tr{:id => dom_id(setting)}  
+  %td= setting.id
+  %td= setting.name
+  %td= setting.key
+  %td= setting.value
+  %td.actions
+    %ul.nav.navbar-right.panel_toolbox.list-inline
+      %li
+        = link_to edit_setting_path(setting), remote: true do
+          %i.fa.fa-pencil
+      %li
+        = link_to setting_path(setting), remote: true, method: :delete, data: {confirm: t(".confirm_delete"), disable_with: t(".deleting")} do
+          %i.fa.fa-trash-o

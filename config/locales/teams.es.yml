@@ -1,0 +1,8 @@
+es:
+  teams:
+    index:
+      create: "New Team"
+      title: "Equipos"
+    team:
+      confirm_delete: "Seguro que quieres eliminar el Equipo?"
+      deleting: "Eliminando..."

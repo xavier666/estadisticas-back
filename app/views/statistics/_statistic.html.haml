@@ -1,0 +1,15 @@
+%tr{:id => dom_id(statistic)}  
+  %td= statistic.id
+  %td= statistic.season
+  %td= player_image statistic.player, "height_22"
+  %td= link_to statistic.player.name, statistic.player
+  %td= team_image statistic.player.team, "height_22"
+  %td= statistic.player.position.text if statistic.player.position
+  %td.actions
+    %ul.nav.navbar-right.panel_toolbox.list-inline
+      %li
+        = link_to edit_statistic_path(statistic), remote: true do
+          %i.fa.fa-pencil
+      %li
+        = link_to statistic_path(statistic), remote: true, method: :delete, data: {confirm: t(".confirm_delete"), disable_with: t(".deleting")} do
+          %i.fa.fa-trash-o

@@ -1,0 +1,28 @@
+.row
+  .col-xs-12
+    %h1= @player.name
+    
+  .col-xs-12
+    .table-responsive
+      %table.table.table-striped
+        %tbody
+          %tr
+            %td.player_detail.col-xs-2{rowspan: 6}
+              = player_image @player, "height_22"
+          %tr
+            %th= "Position"
+            %td= @player.position.text if @player.position
+          %tr
+            %th= "Height"
+            %td= @player.height
+          %tr
+            %th= "Date of Birth"
+            %td= @player.date_of_birth.to_s(:short_date) if @player.date_of_birth
+          %tr 
+            %th= "Place of Birth"
+            %td= @player.place_of_birth 
+          %tr 
+            %th= "Price"
+            %td= player_price @player.price[CURRENT_ROUND]
+  .col-xs-12
+    = render partial: "statistics/statistics_player", locals: {statistic: @player.statistics.last}

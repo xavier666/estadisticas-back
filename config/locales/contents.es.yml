@@ -1,0 +1,18 @@
+es:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Record Invalid"
+
+      models:
+        content:
+          attributes:
+            title:
+              taken: "Value Already Taken."
+  contents:
+    content:
+      confirm_delete: "Seguro que quieres eliminar el Contenido?"
+      deleting: "Eliminando..."
+    index: 
+      create: "New Content"
+      title: "Contenidos"

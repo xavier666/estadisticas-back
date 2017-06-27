@@ -1,0 +1,19 @@
+%tr{:id => dom_id(content)}
+  %td.text-left= object.id
+  %td= content_image object.image_thumb_url, css="height_50"
+  %td= link_to object.title, admin_content_path(object)
+  %td= object.summary
+  %td= object.keywords
+  %td
+    - if object.published
+      %i.glyphicon.glyphicon-ok
+    - else
+      %i.glyphicon.glyphicon-remove
+  %td.actions
+    %ul.nav.navbar-right.panel_toolbox.list-inline
+      %li
+        = link_to edit_content_path(content), remote: true do
+          %i.fa.fa-pencil
+      %li
+        = link_to content_path(content), remote: true, method: :delete, data: {confirm: t(".confirm_delete"), disable_with: t(".deleting")} do
+          %i.fa.fa-trash-o

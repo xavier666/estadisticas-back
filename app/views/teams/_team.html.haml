@@ -1,0 +1,19 @@
+%tr{:id => dom_id(team)}  
+  %td= team.id
+  %td= team_image team, "height_22"
+  %td= team.short_code
+  %td= team.acb_short_code
+  %td= link_to team.name, team
+  %td
+    - if team.active
+      %i.glyphicon.glyphicon-ok
+    - else
+      %i.glyphicon.glyphicon-remove
+  %td.actions
+    %ul.nav.navbar-right.panel_toolbox.list-inline
+      %li
+        = link_to edit_team_path(team), remote: true do
+          %i.fa.fa-pencil
+      %li
+        = link_to team_path(team), remote: true, method: :delete, data: {confirm: t(".confirm_delete"), disable_with: t(".deleting")} do
+          %i.fa.fa-trash-o

@@ -1,0 +1,35 @@
+.x_panel
+  .x_title
+    %h2= "Editar Contenido"
+    .clearfix
+  .x_content
+    = form_for @content, url: @content.new_record? ? contents_path : content_path(@content), remote: true, html: {class: "form-horizontal"} do |f|
+      .form-group
+        .col-md-3.control-label= f.label "Title"
+        .col-md-8= f.text_field :title, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Thumb Image URL"
+        .col-md-8= f.text_field :image_thumb_url, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Image URL"
+        .col-md-8= f.text_field :image_url, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Summary"
+        .col-md-8= f.text_area(:summary, cols: 103, rows: 3)
+      .form-group
+        .col-md-3.control-label= f.label "Keywords"
+        .col-md-8= f.text_field :keywords, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Body"
+        .col-md-8= f.text_area(:body, cols: 50, rows: 20, class: 'string form-control wysihtml5')
+      .form-group
+        .col-md-3.control-label= f.label "Date"
+        .col-md-8= f.text_field :created_at, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Published"
+        .col-md-8= f.check_box :published
+      .form-group
+        .col-md-3
+        .col-md-8
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-default{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}= t("cancel")

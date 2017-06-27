@@ -1,0 +1,41 @@
+.x_panel
+  .x_title
+    %h2= "Editar Jugador"
+    .clearfix
+  .x_content
+    = form_for @player, url: @player.new_record? ? players_path : player_path(@player), remote: true, html: {class: "form-horizontal"} do |f|
+      .form-group
+        .col-md-3.control-label= f.label "Name"
+        .col-md-5= f.text_field :name, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "Position"
+        .col-md-5= f.select :position, Player.position.options, {}, {class: 'form-control select2'}
+      .form-group
+        .col-md-3.control-label= f.label "Team"
+        .col-md-5= f.collection_select :team_id, Team.active, :id, :name, {}, {class: 'form-control select2'}
+      .form-group
+        .col-md-3.control-label= f.label "URL"
+        .col-md-5= f.text_field :href, class: 'string form-control'
+      .form-group
+        .col-md-3.control-label= f.label "MPV Round"
+        .col-md-5= f.check_box :best_round_val
+      .form-group
+        .col-md-3.control-label= f.label "Top Points Round"
+        .col-md-5= f.check_box :best_round_points
+      .form-group
+        .col-md-3.control-label= f.label "Top Rebounds Round"
+        .col-md-5= f.check_box :best_round_rebounds
+      .form-group
+        .col-md-3.control-label= f.label "Top Assists Round"
+        .col-md-5= f.check_box :best_round_assists
+      .form-group
+        .col-md-3.control-label= f.label "Top 3 Points Round"
+        .col-md-5= f.check_box :best_round_3points
+      .form-group
+        .col-md-3.control-label= f.label "Active"
+        .col-md-5= f.check_box :active
+      .form-group
+        .col-md-3
+        .col-md-5
+          = f.submit "Save", class: "btn btn-primary"
+          %button.btn.btn-default{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"}= t("cancel")
