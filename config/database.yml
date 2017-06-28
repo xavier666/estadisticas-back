@@ -22,7 +22,7 @@ test:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: gestadisticas_test
+  database: estadisticas_test
   pool:     5
   username: estadisticas
   password:
