@@ -49,8 +49,6 @@ Rails.application.routes.draw do
   end
   resources :settings
 
-
-
   # API #
   namespace :api do
     namespace :v1 do 

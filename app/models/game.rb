@@ -30,10 +30,6 @@ class Game < ActiveRecord::Base
   scope :by_season, -> (season) { where(:season => season) }
   scope :by_round,  -> (round)  { where(:round  => round) }
 
-  def to_s
-    name
-  end
-
   def self.active
     where(active: true)
   end
