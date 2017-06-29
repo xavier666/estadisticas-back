@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #devise_for :users
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "dashboard#index"
   get "/index.html" => "static#index"
@@ -52,11 +52,13 @@ Rails.application.routes.draw do
 
 
   # API #
-  devise_for :users, :path_prefix => 'api/v1', skip: :all
-
   namespace :api do
     namespace :v1 do 
+      resources :contents
+      resources :games
       resources :players
+      resources :statistics
+      resources :teams
     end
   end
 
