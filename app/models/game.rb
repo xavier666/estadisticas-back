@@ -38,7 +38,6 @@ class Game < ActiveRecord::Base
     [id.to_s, local_team.name.parameterize, away_team.name.parameterize].join("-")
   end
 
-
   # !**************************************************
   # !                Imports
   # !**************************************************
