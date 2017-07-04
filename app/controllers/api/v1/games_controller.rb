@@ -15,13 +15,13 @@ class Api::V1::GamesController < Api::V1::ApiController
   end
 
   def show
-  	expose Game.where(id: params[:id])
+  	expose Game.where(id: params[:id]).includes(local_team: [players: :statistics], away_team: [players: :statistics]), include: [local_team: [players: :statistics], away_team: [players: :statistics]]
   end
 
   private
 
     def game_params
-      params.require(:game).permit([:name, :short_code, :season, :round, :active])
+      params.require(:game).permit([:id, :name, :short_code, :season, :round, :active])
     end
 
 end
