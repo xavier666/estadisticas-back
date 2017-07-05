@@ -7,4 +7,8 @@ class Api::V1::PlayersController < Api::V1::ApiController
     expose @players
   end
 
+  def show
+  	expose Player.where(id: params[:id]).includes(:team, :statistics), include: [:team, :statistics]
+  end
+
 end
