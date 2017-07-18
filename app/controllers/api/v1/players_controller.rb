@@ -4,6 +4,10 @@ class Api::V1::PlayersController < Api::V1::ApiController
 
   def index
     @players = Player.all
+    
+    @players = @players.where(position: params[:position]) if params[:position].present?
+    @players = @players.where(active: params[:active]) if params[:active].present?
+
     expose @players
   end
 
