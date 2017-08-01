@@ -4,7 +4,7 @@
 #
 #
 
-class StatisticSerializer < ActiveModel::Serializer
+class StatisticSerializer < EstadisticasSerializer
 
   belongs_to :player, serializer: PlayerSerializer
 
