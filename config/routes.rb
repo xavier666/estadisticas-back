@@ -53,7 +53,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do 
       resources :contents
-      resources :games
+      resources :games do 
+        collection do
+          get :calendar
+        end
+      end
       resources :players
       resources :statistics
       resources :teams

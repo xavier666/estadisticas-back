@@ -15,7 +15,12 @@ class Api::V1::GamesController < Api::V1::ApiController
   end
 
   def show
-  	expose Game.where(id: params[:id]).includes(local_team: [players: :statistics], away_team: [players: :statistics]), include: [local_team: [players: :statistics], away_team: [players: :statistics]]
+  	expose Game.where(id: params[:id]).joinsincludes(local_team: [players: :statistics], away_team: [players: :statistics]), include: [local_team: [players: :statistics], away_team: [players: :statistics]]
+  end
+
+  def calendar
+    @games = Game.active.includes(:local_team, :away_team).by_season(CURRENT_SEASON).group_by(&:round)
+    expose @games, include: [:local_team, :away_team]
   end
 
   private
