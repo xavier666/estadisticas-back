@@ -4,11 +4,11 @@ class Api::V1::TeamsController < Api::V1::ApiController
 
   def index
     @teams = Team.all
-    expose @teams
+    expose @teams, include: [players: :statistics]
   end
 
   def show
-  	expose Team.where(id: params[:id]).includes(:players), include: [:players]
+  	expose Team.where(id: params[:id]).includes(players: :statistics), include: [players: :statistics]
   end
 
 end
