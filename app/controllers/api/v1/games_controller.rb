@@ -4,7 +4,7 @@ class Api::V1::GamesController < Api::V1::ApiController
 
   def index
   	params[:season] = CURRENT_SEASON
-  	params[:round] = CURRENT_ROUND.to_i - 1
+  	params[:round] = params[:round] || CURRENT_ROUND.to_i - 1
 
   	@games = Game.all
   	
