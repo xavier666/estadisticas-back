@@ -19,7 +19,7 @@ class Api::V1::GamesController < Api::V1::ApiController
   end
 
   def calendar
-    @games = Game.active.includes(:local_team, :away_team).by_season(CURRENT_SEASON).group_by(&:round)
+    @games = Game.includes(:local_team, :away_team).by_season(CURRENT_SEASON).order(:round)
     expose @games, include: [:local_team, :away_team]
   end
 
