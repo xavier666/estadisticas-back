@@ -15,14 +15,14 @@ class Api::V1::StatisticsController < Api::V1::ApiController
   	params[:season] = CURRENT_SEASON
     params[:round] = params[:round] || CURRENT_ROUND.to_i - 1
 
-    @statistics = Statistic.all.joins(:player).includes(:player)
+    @statistics = Statistic.all.joins(:player).includes(player: :team)
 
     @statistics = @statistics.where(season: params[:season]) if params[:season].present?
   	#@statistics = @statistics.where("statistics.week_#{params[:round]} ->> '#{params[:order]}' != '0'") if params[:order] and params[:round]
   	@statistics = @statistics.order("statistics.week_#{params[:round]} -> '#{params[:order]}' DESC") if params[:order] and params[:round]
   	@statistics = @statistics.first(params[:limit]) if params[:limit]
 
-    expose @statistics, include: [:player]
+    expose @statistics, include: [player: :team]
   end	
 
 end
