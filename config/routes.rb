@@ -59,7 +59,11 @@ Rails.application.routes.draw do
         end
       end
       resources :players
-      resources :statistics
+      resources :statistics do
+        collection do
+          get :trending_players
+        end
+      end
       resources :teams
     end
   end
