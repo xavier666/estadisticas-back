@@ -6,6 +6,7 @@ class Api::V1::StatisticsController < Api::V1::ApiController
     @statistics = @statistics.where(season: params[:season]) if params[:season].present?
     @statistics = @statistics.where("players.position = ? ", params[:position]) if params[:position].present?
     @statistics = @statistics.where("players.active = ? ", params[:active]) if params[:active].present?
+    @players = @players.first(params[:count]) if params[:count].present?
 
     #@statistics = @statistics.pluck("week_#{params[:round]}") if params[:round].present?
 
